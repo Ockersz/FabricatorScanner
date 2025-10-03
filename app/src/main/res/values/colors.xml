@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Blue Shades (Material UI default) -->
+    <color name="blue_200">#90CAF9</color>
+    <color name="blue_500">#1976D2</color>
+    <color name="blue_700">#1565C0</color>
+
+    <!-- Aliases for old purple_* references -->
+    <color name="purple_200">@color/blue_200</color>
+    <color name="purple_500">@color/blue_500</color>
+    <color name="purple_700">@color/blue_700</color>
+
+    <!-- Accent / Secondary -->
+    <color name="teal_200">#80CBC4</color>
+    <color name="teal_700">#00796B</color>
+
+    <!-- Base -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
