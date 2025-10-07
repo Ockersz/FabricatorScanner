@@ -1,5 +1,6 @@
 package com.example.fabricatorscanner.ui.home;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -149,7 +150,7 @@ public class HomeFragment extends Fragment {
 
         // Disable button + show loading
         binding.buttonSave.setEnabled(false);
-        binding.buttonSave.setText("Saving...");
+        binding.buttonSave.setText(R.string.saving);
         setClearIconsEnabled(false);
 
         // yyyy-MM-dd HH:mm:ss
@@ -189,7 +190,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                     final int code = response.code();
-                    final String resStr = response.body() != null ? response.body().string() : "";
+//                    final String resStr = response.body() != null ? response.body().string() : "";
 
                     mainHandler.post(() -> {
                         resetButton();
@@ -213,7 +214,7 @@ public class HomeFragment extends Fragment {
                 }
             });
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             resetButton();
             clearFocusFromFields();
             setClearIconsEnabled(true);
@@ -245,6 +246,7 @@ public class HomeFragment extends Fragment {
         sb.show();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void setupClearIcon(android.widget.EditText editText) {
         editText.setTag(true); // enabled by default
 
