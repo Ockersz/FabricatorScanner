@@ -9,4 +9,7 @@
     <string name="save">Save</string>
     <string name="clear">Clear Field\n</string>
     <string name="saving">Saving…</string>
+    <string name="add">Add</string>
+    <string name="mattress_code">Mattress Code</string>
+    <string name="delete">Delete</string>
 </resources>
