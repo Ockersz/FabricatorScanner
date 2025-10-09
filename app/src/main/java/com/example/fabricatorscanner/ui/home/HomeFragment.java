@@ -90,6 +90,9 @@ public class HomeFragment extends Fragment {
                 new String[]{"D", "N"} // Only allow D or N
         );
         binding.dropdownShift.setAdapter(shiftAdapter);
+        binding.dropdownShift.setKeyListener(null); // prevent manual typing
+        binding.dropdownShift.setFocusable(false);
+        binding.dropdownShift.setOnClickListener(v -> binding.dropdownShift.showDropDown());
 
         // Try to initialize ScanManager safely
         try {
@@ -124,7 +127,9 @@ public class HomeFragment extends Fragment {
 
         // Setup RecyclerView for mattresses
         mattressList = new ArrayList<>();
-        mattressAdapter = new MattressAdapter(mattressList);
+        mattressAdapter = new MattressAdapter(mattressList, count -> {
+            binding.textMattressCount.setText("Mattresses: " + count);
+        });
         binding.recyclerMattresses.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.recyclerMattresses.setAdapter(mattressAdapter);
 

@@ -15,9 +15,16 @@ import java.util.List;
 public class MattressAdapter extends RecyclerView.Adapter<MattressAdapter.ViewHolder> {
 
     private final List<String> mattressList;
+    private final OnMattressChangeListener listener;
 
-    public MattressAdapter(List<String> mattressList) {
+    // Callback interface
+    public interface OnMattressChangeListener {
+        void onMattressCountChanged(int count);
+    }
+
+    public MattressAdapter(List<String> mattressList, OnMattressChangeListener listener) {
         this.mattressList = mattressList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -39,6 +46,11 @@ public class MattressAdapter extends RecyclerView.Adapter<MattressAdapter.ViewHo
             if (pos != RecyclerView.NO_POSITION) {
                 mattressList.remove(pos);
                 notifyItemRemoved(pos);
+
+                // Notify listener about the updated count
+                if (listener != null) {
+                    listener.onMattressCountChanged(mattressList.size());
+                }
             }
         });
     }
